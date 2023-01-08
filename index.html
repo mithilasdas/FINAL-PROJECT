@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"
+        <p style="text-align:center;"/p>
+        <title>
+            Air Quality Index Prediction
+        </title>
+        
+    <center><img src="{{url_for('static', filename='airpollution.jpg')}}" ></center>
+ </head>
+ <body>
+     <div class="login" >
+       <center><h1>Air Quality Index Prediction</h1>></center> 
+     </div>
+     <div class="main">
+     <center> <body>
+         <form action='/predict' method="POST">
+            Fine_particles: <input type='text' name='Fine_particles'><br>
+            Coarse_particles: <input type='text' name='Coarse_particles'><br>
+            NO: <input type='text' name=' NO'><br>
+            NO2: <input type='text' name='NO2'><br>
+            NOx: <input type='text' name='NOx'><br>
+            NH3: <input type='text' name='NH3'><br>
+            CO: <input type='text' name=' CO'><br>
+            SO2: <input type='text' name='SO2'><br>
+            O3: <input type='text' name='O3'><br>
+            Benzene: <input type='text' name='Benzene'><br>
+            Toluene: <input type='text' name='Toluene'><br>
+            Xylene: <input type='text' name='Xylene'><br>
+            AQI: {{result}} <br>
+            <input type='submit' value='Predict'>
+        </form>
+    </body>></center>
+</html>
