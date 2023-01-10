@@ -1,35 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
+        <title>Air Quality Index Prediction Calculator</title>
         <meta charset="UTF-8"
-        <p style="text-align:center;"/p>
-        <title>
-            Air Quality Index Prediction
-        </title>
-        
-    <center><img src="{{url_for('static', filename='airpollution.jpg')}}" ></center>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {
+    background-image: url('/static/img/1.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    }
+    .button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 14 px;
+    font-family: Arial;
+    padding: 10px 24px;
+    cursor: pointer;
+    }
+    .label {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    }
+    p.groove {border-style: groove;}
+</style>
  </head>
- <body>
-     <div class="login" >
-       <center><h1>Air Quality Index Prediction</h1>></center> 
-     </div>
-     <div class="main">
-     <center> <body>
-         <form action='/predict' method="POST">
-            Fine_particles: <input type='text' name='Fine_particles'><br>
-            Coarse_particles: <input type='text' name='Coarse_particles'><br>
-            NO: <input type='text' name=' NO'><br>
-            NO2: <input type='text' name='NO2'><br>
-            NOx: <input type='text' name='NOx'><br>
-            NH3: <input type='text' name='NH3'><br>
-            CO: <input type='text' name=' CO'><br>
-            SO2: <input type='text' name='SO2'><br>
-            O3: <input type='text' name='O3'><br>
-            Benzene: <input type='text' name='Benzene'><br>
-            Toluene: <input type='text' name='Toluene'><br>
-            Xylene: <input type='text' name='Xylene'><br>
-            AQI: {{result}} <br>
-            <input type='submit' value='Predict'>
-        </form>
-    </body>></center>
+    <body>
+        <p style="text-align:center;"/p>
+        <center><h1 style="color:White;">Air Quality Index Prediction Calculator</h1></center>
+        <center><h3 style="color:White;">Enter the values in the given boxes against each constituent and click the predict button to see the calculated air quality index (AQI). Find the category of pollution in the area by matching the output with the below AQI chart. </h3></center>
+        <div class="main">
+        <center>
+        <form action='/predict' method="POST">
+
+            <label for="fineparticles">Fine Particles</label><br>
+            <input type="number" id="fineparticles" name="Fine_particles" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="coarseparticles">Coarse Particles</label><br>
+            <input type="number" id="coarseparticles" name="Coarse_particles" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="NO">NO</label><br>
+            <input type="number" id="NO" name="NO" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="NO2">NO2</label><br>
+            <input type="number" id="NO2" name="NO2" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="NOx">NOx</label><br>
+            <input type="number" id="NOx" name="NOx" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="NH3">NH3</label><br>
+            <input type="number" id="NH3" name="NH3" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="CO">CO</label><br>
+            <input type="number" id="CO" name="CO" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="SO2">SO2</label><br>
+            <input type="number" id="SO2" name="SO2" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="O3">O3</label><br>
+            <input type="number" id="O3" name="O3" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="Benzene">Benzene</label><br>
+            <input type="number" id="Benzene" name="Benzene" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="Toluene">Toluene</label><br>
+            <input type="number" id="Toluene" name="Toluene" min="-9000.00000000" max="9000.00000000" step="any"><br>
+
+            <label for="Xylene">Xylene</label><br>
+            <input type="number" id="Xylene" name="Xylene" min="-9000.00000000" max="9000.00000000" step="any"><br>
+            <br>
+            <br>
+
+            <input type='submit' value='Predict' class="button">
+            <input type="reset">
+            <br>
+            <br>
+
+            AQI RESULT
+            <p class="groove">{{result}}</p>
+            </form>
+
+            <br>
+            <img src="/static/img/airquality.png" alt="Air Quality Index Reference" width="400" height="276">
+        </center>
+    </body>
 </html>
